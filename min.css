@@ -1,0 +1,48 @@
+body {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url("https://images.pexels.com/photos/724994/pexels-photo-724994.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-position: center;
+}
+
+.menu{
+    position: absolute;
+    top: 47vh;
+    left: 42vw;
+    transform: translate(-50%,-50%);
+}
+.btn_custom{
+    display: block;
+    background: black !important;
+}
+
+.btn_custom:hover{
+    background-color: #26a69a !important;
+}
+.recordList{
+    width: 100vw;
+    height: 100vh;
+    opacity: .4;
+    background: gray;
+    position: absolute;
+}
+table{
+    position: relative;
+    width: 50vw !important;
+    background: white;
+    opacity: .8;
+    position: absolute;
+    top: 40vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
+}

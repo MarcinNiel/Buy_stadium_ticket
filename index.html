@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+ <link rel="stylesheet" type="text/css" href="min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   </head>
+  <body>
+<div class="content">
+    
+    <div class="menu">
+
+
+    <button id="start" class="btn btn_custom" type="button" >Start</button>
+        <br><br>
+    <button id="list" class="btn_custom btn" type="button" >Record List</button>
+    <br>
+    <br>
+        <button id="exit" type="button" class="btn btn_custom">Exit</button>
+
+
+    </div>
+    </div>
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+      const electron = require('electron');
+      const {ipcRenderer} = electron;
+
+      const start = document.getElementById('start');
+      const exit = document.getElementById('exit');
+      const list = document.getElementById('list');
+
+
+      exit.addEventListener('click',function () {
+          ipcRenderer.send('btn:exit');
+      });
+
+      list.addEventListener('click',function () {
+          ipcRenderer.send('btn:list');
+      });
+
+      start.addEventListener('click',function () {
+          ipcRenderer.send('btn:start');
+      });
+
+    </script>
+  </body>
+</html>
