@@ -45,4 +45,95 @@ table{
     top: 40vh;
     left: 50vw;
     transform: translate(-50%,-50%);
+    border: solid !important;
+}
+td,th{
+    text-align: center !important;
+}
+
+
+
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 200px;
+    height: 300px;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: white;
+    border-radius: 20px;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+    filter: invert(1);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+
+}
+
+.card_border{
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    top: 50%;
+    border: solid 8px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+
+}
+
+.card_logo_front{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: url(https://static.thenounproject.com/png/4059-200.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 130px;
+    height: 125px;
+    transform: translate(-50%,-50%);
+}
+.card_logo_back{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: url(https://static.thenounproject.com/png/51575-200.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 130px;
+    height: 125px;
+    transform: translate(-50%,-50%);
 }

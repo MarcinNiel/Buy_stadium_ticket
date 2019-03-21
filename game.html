@@ -2,22 +2,30 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Memory Game</title>
     <link rel="stylesheet" type="text/css" href="min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
 </head>
 <body>
 <div class="content">
-   game
+    <div class="flip-container " ontouchstart="this.classList.toggle('hover');">
+        <div class="flipper">
+            <div class="front">
+                <!-- front content -->
+                <div class="card_border "></div>
+                <div class="card_logo_front"></div>
+            </div>
+            <div class="back">
+                <!-- back content -->
+                <div class="card_border"></div>
+                <div class="card_logo_back"></div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <script>
     // You can also require other files to run in this process
     require('./renderer.js')
-
-
-
 </script>
 </body>
 </html>

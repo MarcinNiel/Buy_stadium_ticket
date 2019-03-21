@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <meta charset="UTF-8"> <title>Memory Game</title>
     <link rel="stylesheet" type="text/css" href="min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -11,7 +10,7 @@
 <div class="content">
     <div class="recordList"></div>
 
-    <table>
+    <table >
         <thead>
         <tr>
             <th>Name</th>
@@ -19,15 +18,8 @@
         </tr>
         </thead>
 
-        <tbody>
-        <tr>
-            <td>Alan</td>
-            <td>13.76s</td>
-        </tr>
-        <tr>
-            <td>Jonathan</td>
-            <td>17.00s</td>
-        </tr>
+        <tbody id="myTable">
+
         </tbody>
     </table>
 </div>
@@ -35,8 +27,31 @@
 <script>
     // You can also require other files to run in this process
     require('./renderer.js')
+    var fs=require('fs');
+    var data=fs.readFileSync('data.json', 'utf8');
+    var array = JSON.parse(data);
+    updateTable();
 
 
+    function addRecord(pName,pTime){
+
+        array.push({name:pName,time:pTime});
+        fs.writeFileSync('data.json',JSON.stringify(array) , 'utf8');
+        updateTable();
+
+    }
+
+    function updateTable() {
+        var recordList =  document.getElementById("myTable");
+        recordList.innerHTML = "";
+        array.forEach(function (element, index, array) {
+            var row =  recordList.insertRow(-1);
+            row.insertCell(0).innerHTML=element.name;
+            row.insertCell(1).innerHTML=element.time;
+        });
+
+
+    }
 
 </script>
 </body>
