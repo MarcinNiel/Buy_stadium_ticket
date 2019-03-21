@@ -8,17 +8,86 @@
 </head>
 <body>
 <div class="content">
-    <div class="flip-container " ontouchstart="this.classList.toggle('hover');">
-        <div class="flipper">
-            <div class="front">
-                <!-- front content -->
-                <div class="card_border "></div>
-                <div class="card_logo_front"></div>
+    <div class="stopwatch">00:00:00</div>
+    <div class="game_section">
+        <div class="card_section">
+            <div class="flip-container memory-card">
+                <div class="flipper" data-image="black">
+                    <div class="front">
+                        <!-- front content -->
+                        <div class="card_border "></div>
+                        <div class="card_logo_front"></div>
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                        <div class="card_border"></div>
+                        <div class="card_logo_back"></div>
+                    </div>
+                </div>
             </div>
-            <div class="back">
-                <!-- back content -->
-                <div class="card_border"></div>
-                <div class="card_logo_back"></div>
+        </div>
+        <div class="card_section">
+            <div class="flip-container memory-card">
+                <div class="flipper" data-image="black">
+                    <div class="front">
+                        <!-- front content -->
+                        <div class="card_border "></div>
+                        <div class="card_logo_front"></div>
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                        <div class="card_border"></div>
+                        <div class="card_logo_back"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_section">
+            <div class="flip-container memory-card">
+                <div class="flipper" data-image="black">
+                    <div class="front">
+                        <!-- front content -->
+                        <div class="card_border "></div>
+                        <div class="card_logo_front"></div>
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                        <div class="card_border"></div>
+                        <div class="card_logo_back"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_section">
+            <div class="flip-container memory-card">
+                <div class="flipper" data-image="black">
+                    <div class="front">
+                        <!-- front content -->
+                        <div class="card_border "></div>
+                        <div class="card_logo_front"></div>
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                        <div class="card_border"></div>
+                        <div class="card_logo_back"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_section">
+            <div class="flip-container memory-card">
+                <div class="flipper" data-image="black">
+                    <div class="front">
+                        <!-- front content -->
+                        <div class="card_border "></div>
+                        <div class="card_logo_front"></div>
+                    </div>
+                    <div class="back">
+                        <!-- back content -->
+                        <div class="card_border"></div>
+                        <div class="card_logo_back"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -26,6 +95,166 @@
 <script>
     // You can also require other files to run in this process
     require('./renderer.js')
+    const delay = require('delay');
+
+    class Stopwatch {
+        constructor(display) {
+            this.running = false;
+            this.display = display;
+            this.reset();
+            this.print(this.times);
+        }
+
+        reset() {
+            this.times = [0, 0, 0];
+            this.print();
+        }
+
+        start() {
+            if (!this.time) this.time = performance.now();
+            if (!this.running) {
+                this.running = true;
+                requestAnimationFrame(this.step.bind(this));
+            }
+        }
+
+        stop() {
+            this.running = false;
+            this.time = null;
+        }
+
+        restart() {
+            if (!this.time) this.time = performance.now();
+            if (!this.running) {
+                this.running = true;
+                requestAnimationFrame(this.step.bind(this));
+            }
+            this.reset();
+        }
+
+        clear() {
+            clearChildren(this.results);
+        }
+
+        step(timestamp) {
+            if (!this.running) return;
+            this.calculate(timestamp);
+            this.time = timestamp;
+            this.print();
+            requestAnimationFrame(this.step.bind(this));
+        }
+
+        calculate(timestamp) {
+            var diff = timestamp - this.time;
+            // Hundredths of a second are 100 ms
+            this.times[2] += diff / 10;
+            // Seconds are 100 hundredths of a second
+            if (this.times[2] >= 100) {
+                this.times[1] += 1;
+                this.times[2] -= 100;
+            }
+            // Minutes are 60 seconds
+            if (this.times[1] >= 60) {
+                this.times[0] += 1;
+                this.times[1] -= 60;
+            }
+        }
+
+        print() {
+            this.display.innerText = this.format(this.times);
+        }
+
+        format(times) {
+            return `\
+${pad0(times[0], 2)}:\
+${pad0(times[1], 2)}:\
+${pad0(Math.floor(times[2]), 2)}`;
+        }
+    }
+
+    let stopwatch = new Stopwatch(
+        document.querySelector('.stopwatch'));
+
+    function pad0(value, count) {
+        var result = value.toString();
+        for (; result.length < count; --count)
+            result = '0' + result;
+        return result;
+    }
+
+
+    const cards = document.querySelectorAll('.flipper');
+
+    class Card {
+        constructor(element) {
+            this.card = element;
+            this.data = element.dataset.image;
+        }
+
+        flip() {
+            this.card.classList.toggle('flip_card');
+        }
+
+        disable() {
+
+            this.card.removeEventListener("click", clickCard);
+        }
+
+        enable() {
+            this.card.addEventListener("click", clickCard);
+        }
+
+        isMatch(dataToMatch) {
+            return (this.data === dataToMatch) ? true : false;
+        }
+
+    }
+
+    console.log(cards);
+
+
+    let firstCard, secondCard, cardClicked;
+    var gameStop = false;
+
+    function clickCard() {
+        stopwatch.start();
+
+
+        if (firstCard == null) {
+            firstCard = new Card(this);
+            firstCard.flip();
+        } else {
+            if (this != firstCard.card && secondCard == null) {
+                secondCard = new Card(this);
+                secondCard.flip();
+            }
+        }
+
+        if (secondCard != null && firstCard != null) {
+            (firstCard.isMatch(secondCard.data)) ? disableCards() : unflipCards();
+        }
+    }
+
+    function disableCards() {
+        firstCard.disable();
+        secondCard.disable();
+        firstCard = null;
+        secondCard = null;
+    }
+
+    function unflipCards() {
+        setTimeout(function () {
+            firstCard.flip();
+            secondCard.flip();
+            firstCard = null;
+            secondCard = null;
+        }, 600);
+    }
+
+
+    cards.forEach(card => card.addEventListener('click', clickCard)
+    )
+    ;
 </script>
 </body>
 </html>
