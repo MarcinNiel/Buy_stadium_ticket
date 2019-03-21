@@ -20,7 +20,10 @@
     "electron": "^4.0.7"
   },
   "dependencies": {
+    "bootbox": "^5.0.1",
+    "bootstrap": "^4.3.1",
     "delay": "^4.1.0",
-    "materialize-css": "^1.0.0-rc.2"
+    "materialize-css": "^1.0.0-rc.2",
+    "popper.js": "^1.14.7"
   }
 }

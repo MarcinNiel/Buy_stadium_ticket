@@ -152,10 +152,29 @@ td,th{
     padding: 20px 0 20px 20px;
     float: left;
     width: 20%;
+    flex: 1;
 }
-.game_section:after {
-    content: "";
-    display: table;
-    clear: both;
+.game_section{
+    display: flex;
+    flex-flow: wrap;
+
+}
+.memory-card{
+
+    transform: scale(1);
 }
 
+.memory-card:active{
+
+    transform: scale(.97);
+    transition: transform .2s;
+}
+.btn_restart{
+    margin: 45px 71px;
+    position: absolute;
+    transform: scale(1.5);
+}
+
+.swal2-confirm, swal2-styled{
+    background-color:#26a69a !important; ;
+}

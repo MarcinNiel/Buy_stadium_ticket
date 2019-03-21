@@ -5,97 +5,72 @@
     <title>Memory Game</title>
     <link rel="stylesheet" type="text/css" href="min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+   </head>
 <body>
 <div class="content">
-    <div class="stopwatch">00:00:00</div>
+
+
+
+    <button class="btn btn_restart"> Restart</button>
+    <div class="stopwatch" id="timer">00:00:00</div>
     <div class="game_section">
-        <div class="card_section">
-            <div class="flip-container memory-card">
-                <div class="flipper" data-image="black">
-                    <div class="front">
-                        <!-- front content -->
-                        <div class="card_border "></div>
-                        <div class="card_logo_front"></div>
-                    </div>
-                    <div class="back">
-                        <!-- back content -->
-                        <div class="card_border"></div>
-                        <div class="card_logo_back"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card_section">
-            <div class="flip-container memory-card">
-                <div class="flipper" data-image="black">
-                    <div class="front">
-                        <!-- front content -->
-                        <div class="card_border "></div>
-                        <div class="card_logo_front"></div>
-                    </div>
-                    <div class="back">
-                        <!-- back content -->
-                        <div class="card_border"></div>
-                        <div class="card_logo_back"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card_section">
-            <div class="flip-container memory-card">
-                <div class="flipper" data-image="black">
-                    <div class="front">
-                        <!-- front content -->
-                        <div class="card_border "></div>
-                        <div class="card_logo_front"></div>
-                    </div>
-                    <div class="back">
-                        <!-- back content -->
-                        <div class="card_border"></div>
-                        <div class="card_logo_back"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card_section">
-            <div class="flip-container memory-card">
-                <div class="flipper" data-image="black">
-                    <div class="front">
-                        <!-- front content -->
-                        <div class="card_border "></div>
-                        <div class="card_logo_front"></div>
-                    </div>
-                    <div class="back">
-                        <!-- back content -->
-                        <div class="card_border"></div>
-                        <div class="card_logo_back"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card_section">
-            <div class="flip-container memory-card">
-                <div class="flipper" data-image="black">
-                    <div class="front">
-                        <!-- front content -->
-                        <div class="card_border "></div>
-                        <div class="card_logo_front"></div>
-                    </div>
-                    <div class="back">
-                        <!-- back content -->
-                        <div class="card_border"></div>
-                        <div class="card_logo_back"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <script>
     // You can also require other files to run in this process
     require('./renderer.js')
     const delay = require('delay');
+
+    var fs = require('fs');
+    var data = fs.readFileSync('cards.json', 'utf8');
+    var array = JSON.parse(data);
+    console.log(array);
+    createGame();
+    var pairs = array.length;
+    var sum =0;
+
+    function createGame() {
+        var gameBoard = document.querySelector('.game_section');
+        gameBoard.innerHTML = '';
+
+        for (i = 0; i < 2; i++) {
+
+            array.forEach(element => {
+
+                console.log(element.image);
+
+
+            var newCard = '<div class="card_section">\n' +
+                '            <div class="flip-container memory-card">\n' +
+                '                <div class="flipper" data-image="' + element.name + '" >\n' +
+                '                    <div class="front">\n' +
+                '                        <!-- front content -->\n' +
+                '                        <div class="card_border "></div>\n' +
+                '                        <div class="card_logo_front"></div>\n' +
+                '                    </div>\n' +
+                '                    <div class="back">\n' +
+                '                        <!-- back content -->\n' +
+                '                        <div class="card_border"></div>\n' +
+                '                        <div class="card_logo_back" style=" ' +
+                '   background: url(' + element.image + ');\n' +
+                '   background-repeat: no-repeat;\n' +
+                '    background-size: cover;\n' +
+                '    background-position: center;"></div>\n' +
+                '                    </div>\n' +
+                '                </div>\n' +
+                '            </div>\n' +
+                '        </div>';
+            gameBoard.insertAdjacentHTML('beforeend', newCard);
+            console.log(element.name);
+        })
+            ;
+        }
+
+
+    }
+
+
 
     class Stopwatch {
         constructor(display) {
@@ -221,10 +196,13 @@ ${pad0(Math.floor(times[2]), 2)}`;
 
 
         if (firstCard == null) {
+            console.log("card 1");
             firstCard = new Card(this);
             firstCard.flip();
         } else {
             if (this != firstCard.card && secondCard == null) {
+
+                console.log("card 2");
                 secondCard = new Card(this);
                 secondCard.flip();
             }
@@ -233,6 +211,29 @@ ${pad0(Math.floor(times[2]), 2)}`;
         if (secondCard != null && firstCard != null) {
             (firstCard.isMatch(secondCard.data)) ? disableCards() : unflipCards();
         }
+
+        if(sum == pairs){
+            stopwatch.stop();
+            addRecord("Unknow",document.getElementById('timer').textContent);
+            Swal.fire(
+                'Good job!',
+                'Your score is saved in Record List!',
+                'success'
+            )
+
+
+        }
+    }
+
+
+    function addRecord(pName,pTime){
+        let dataScore=fs.readFileSync('data.json', 'utf8');
+        let arrayScore = JSON.parse(dataScore);
+
+        arrayScore.push({name:pName,time:pTime});
+        fs.writeFileSync('data.json',JSON.stringify(arrayScore) , 'utf8');
+
+
     }
 
     function disableCards() {
@@ -240,6 +241,8 @@ ${pad0(Math.floor(times[2]), 2)}`;
         secondCard.disable();
         firstCard = null;
         secondCard = null;
+        sum+=1;
+
     }
 
     function unflipCards() {
@@ -248,8 +251,45 @@ ${pad0(Math.floor(times[2]), 2)}`;
             secondCard.flip();
             firstCard = null;
             secondCard = null;
-        }, 600);
+        }, 500);
+
     }
+
+    let cardsOrder = document.querySelectorAll('.card_section');
+
+    (function shuffle() {
+
+        cardsOrder.forEach(card => {
+            let randomPos = Math.floor(Math.random() * 10);
+        card.style.order = randomPos;
+    })
+        ;
+    })();
+
+    document.querySelector('.btn_restart').addEventListener('click', () => {
+        stopwatch.stop();
+    stopwatch.reset();
+    resetGame();
+    sum = 0;
+
+    })
+    ;
+
+    function resetGame() {
+        cards.forEach(card => {
+
+            card.classList.contains('flip_card')? card.classList.toggle('flip_card'): '';
+        }
+    )
+        ;
+        cards.forEach(card => card.addEventListener('click', clickCard)
+    )
+        ;
+        firstCard = null;
+        secondCard = null;
+
+    }
+
 
 
     cards.forEach(card => card.addEventListener('click', clickCard)

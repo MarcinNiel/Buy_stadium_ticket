@@ -12,7 +12,7 @@ let gameWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1400,
+    width: 1200,
     height: 940,
     webPreferences: {
       nodeIntegration: true
@@ -38,7 +38,7 @@ function createWindow () {
 function createGameWindow() {
 
     gameWindow = new BrowserWindow({
-        width: 1400,
+        width: 1200,
         height: 940,
         webPreferences: {
             nodeIntegration: true
@@ -58,7 +58,7 @@ function createGameWindow() {
 }
 function createRecordListWindow(){
     recordWindow = new BrowserWindow({
-        width: 1400,
+        width: 1200,
         height: 940,
         webPreferences: {
             nodeIntegration: true
@@ -111,6 +111,12 @@ ipcMain.on('btn:list',function () {
 
 ipcMain.on('btn:start',function () {
     createGameWindow();
+})
+
+ipcMain.on('save:score',function () {
+
+
+
 })
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.

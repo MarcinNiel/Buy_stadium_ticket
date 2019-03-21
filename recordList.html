@@ -8,8 +8,9 @@
 </head>
 <body>
 <div class="content">
-    <div class="recordList"></div>
 
+    <div class="recordList"></div>
+    <button class="btn btn_restart" onclick="clearScores()"> Clear</button>
     <table >
         <thead>
         <tr>
@@ -32,6 +33,12 @@
     var array = JSON.parse(data);
     updateTable();
 
+function clearScores() {
+    array=[];
+    fs.writeFileSync('data.json',JSON.stringify(array) , 'utf8');
+    updateTable();
+updateTable();
+}
 
     function addRecord(pName,pTime){
 
@@ -52,6 +59,11 @@
 
 
     }
+
+
+
+
+
 
 </script>
 </body>

@@ -1,14 +1,23 @@
 [
   {
-    "name": "adad",
-    "time": 99
+    "name": "1",
+    "image": "http://www.pvhc.net/img83/iamtimdeadesqohvvqhv.png"
   },
   {
-    "name": "ad",
-    "time": 999
+    "name": "2",
+    "image": "http://www.ecsteam.com/wp-content/uploads/General-Idea-In-Mind-Icon-Large.png"
   },
   {
-    "name": "adad",
-    "time": 123
+    "name": "3",
+    "image": "http://nadialyduch.dk/wp-content/uploads/2015/09/brain.png"
+  }
+  ,
+  {
+    "name": "4",
+    "image": "https://static.thenounproject.com/png/366997-200.png"
+  },
+  {
+    "name": "5",
+    "image": "https://static.thenounproject.com/png/6728-200.png"
   }
 ]
