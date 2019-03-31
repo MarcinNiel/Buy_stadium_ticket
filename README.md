@@ -5,7 +5,7 @@ location of different cards and find all pairs as soon as possible.
 After reversing the first card, the time starts.
  When the player
 turn face up
-two identical cards forming a pair, face up.
+two identical cards forming a pair they stay face up.
 When a player discovers that he wins all pairs of cards, he wins.
 After winning the name and time of the user is saved in the list of records. if you do not provide a name, the user is the default
 
