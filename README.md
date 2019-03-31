@@ -1,6 +1,6 @@
 # Memory Game
 
-This project contains a simple card game. The object of the game is to try to remember the location of different cards and find all pairs as soon as possible. After reversing the first card, the time begins. When a player turns face up, two identical cards forming a pair remain uncovered. When a player discovers all cards, win the game. After the win, the user's name and time are saved in the list of records. If you do not give the name, by default this is the user
+This project contains a simple card game. The object of the game is to try to remember the location of different cards and find all pairs as soon as possible. After reversing the first card, the time begins. When a player turns face up, two identical cards forming a pair they remain uncovered. When a player discovers all cards the game is won. After the win, the user's name and time are saved in the list of records. If you do not give the name, by default this is the "unknow".
 
 ## Main screen
 ![game](screenshots/mainPage.PNG)
