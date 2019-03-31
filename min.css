@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
+
 body {
     margin: 0px;
     padding: 0px;
@@ -177,4 +180,60 @@ td,th{
 
 .swal2-confirm, swal2-styled{
     background-color:#26a69a !important; ;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Andada|Permanent+Marker|Raleway:300');
+* {
+    box-sizing: border-box;
+}
+
+
+
+#namer {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#namer input {
+    border: 0;
+    border-bottom: 2px solid #26a69a ;
+    width: 100%;
+    font-size: 30px;
+    line-height: 35px;
+    height: 70px;
+    text-align: center;
+    padding: 10px;
+    background: transparent;
+    color: black;
+}
+
+
+#namer input:focus {
+    outline: 0;
+    color: black ;
+}
+
+#namer input::placeholder {
+    color: #26a69a ;
+}
+
+#namer-input.cheeky input {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 40px;
+}
+
+.btn_back{
+    top: 5px;
+    right: 5px;
+    background: black!important;}
+
+.title_main_page{
+    margin: auto;
+    position: fixed;
+    font-size: 47px;
+    left: 20%;
+    top: 42%;
+    transform: translate(-50%);
 }

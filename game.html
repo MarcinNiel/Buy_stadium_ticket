@@ -6,29 +6,34 @@
     <link rel="stylesheet" type="text/css" href="min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-   </head>
+</head>
 <body>
 <div class="content">
-
-
-
+    <div id="namer">
+        <div id="namer-input" class="cheeky">
+            <input type="text" id="inputName" name="namername" placeholder="Type your name">
+        </div>
+    </div>
     <button class="btn btn_restart"> Restart</button>
+    <button class="btn btn_restart btn_back" id="back"> Back</button>
     <div class="stopwatch" id="timer">00:00:00</div>
     <div class="game_section">
     </div>
 </div>
 <script>
     // You can also require other files to run in this process
-    require('./renderer.js')
-    const delay = require('delay');
+    require('./renderer.js');
 
-    var fs = require('fs');
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+    const delay = require('delay');
+    const fs = require('fs');
     var data = fs.readFileSync('cards.json', 'utf8');
     var array = JSON.parse(data);
-    console.log(array);
-    createGame();
     var pairs = array.length;
-    var sum =0;
+    var sum = 0;
+
+    createGame();
 
     function createGame() {
         var gameBoard = document.querySelector('.game_section');
@@ -38,39 +43,33 @@
 
             array.forEach(element => {
 
-                console.log(element.image);
-
-
-            var newCard = '<div class="card_section">\n' +
-                '            <div class="flip-container memory-card">\n' +
-                '                <div class="flipper" data-image="' + element.name + '" >\n' +
-                '                    <div class="front">\n' +
-                '                        <!-- front content -->\n' +
-                '                        <div class="card_border "></div>\n' +
-                '                        <div class="card_logo_front"></div>\n' +
-                '                    </div>\n' +
-                '                    <div class="back">\n' +
-                '                        <!-- back content -->\n' +
-                '                        <div class="card_border"></div>\n' +
-                '                        <div class="card_logo_back" style=" ' +
-                '   background: url(' + element.image + ');\n' +
-                '   background-repeat: no-repeat;\n' +
-                '    background-size: cover;\n' +
-                '    background-position: center;"></div>\n' +
-                '                    </div>\n' +
-                '                </div>\n' +
-                '            </div>\n' +
-                '        </div>';
+                var newCard = '<div class="card_section">\n' +
+                    '            <div class="flip-container memory-card">\n' +
+                    '                <div class="flipper" data-image="' + element.name + '" >\n' +
+                    '                    <div class="front">\n' +
+                    '                        <!-- front content -->\n' +
+                    '                        <div class="card_border "></div>\n' +
+                    '                        <div class="card_logo_front"></div>\n' +
+                    '                    </div>\n' +
+                    '                    <div class="back">\n' +
+                    '                        <!-- back content -->\n' +
+                    '                        <div class="card_border"></div>\n' +
+                    '                        <div class="card_logo_back" style=" ' +
+                    '   background: url(' + element.image + ');\n' +
+                    '   background-repeat: no-repeat;\n' +
+                    '    background-size: cover;\n' +
+                    '    background-position: center;"></div>\n' +
+                    '                    </div>\n' +
+                    '                </div>\n' +
+                    '            </div>\n' +
+                    '        </div>';
             gameBoard.insertAdjacentHTML('beforeend', newCard);
-            console.log(element.name);
+
         })
-            ;
         }
 
 
     }
-
-
 
     class Stopwatch {
         constructor(display) {
@@ -157,7 +156,6 @@ ${pad0(Math.floor(times[2]), 2)}`;
         return result;
     }
 
-
     const cards = document.querySelectorAll('.flipper');
 
     class Card {
@@ -180,29 +178,21 @@ ${pad0(Math.floor(times[2]), 2)}`;
         }
 
         isMatch(dataToMatch) {
-            return (this.data === dataToMatch) ? true : false;
+            return this.data === dataToMatch;
         }
 
     }
 
-    console.log(cards);
-
-
-    let firstCard, secondCard, cardClicked;
-    var gameStop = false;
+    let firstCard, secondCard;
 
     function clickCard() {
         stopwatch.start();
 
-
         if (firstCard == null) {
-            console.log("card 1");
             firstCard = new Card(this);
             firstCard.flip();
         } else {
             if (this != firstCard.card && secondCard == null) {
-
-                console.log("card 2");
                 secondCard = new Card(this);
                 secondCard.flip();
             }
@@ -212,28 +202,24 @@ ${pad0(Math.floor(times[2]), 2)}`;
             (firstCard.isMatch(secondCard.data)) ? disableCards() : unflipCards();
         }
 
-        if(sum == pairs){
+        if (sum == pairs) {
             stopwatch.stop();
-            addRecord("Unknow",document.getElementById('timer').textContent);
+            addRecord(document.getElementById('inputName').value, document.getElementById('timer').textContent);
             Swal.fire(
                 'Good job!',
                 'Your score is saved in Record List!',
                 'success'
             )
-
-
         }
     }
 
-
-    function addRecord(pName,pTime){
-        let dataScore=fs.readFileSync('data.json', 'utf8');
+    function addRecord(pName, pTime) {
+        pName = pName === "" ? "Unknow" : pName;
+        let dataScore = fs.readFileSync('data.json', 'utf8');
         let arrayScore = JSON.parse(dataScore);
 
-        arrayScore.push({name:pName,time:pTime});
-        fs.writeFileSync('data.json',JSON.stringify(arrayScore) , 'utf8');
-
-
+        arrayScore.push({name: pName, time: pTime});
+        fs.writeFileSync('data.json', JSON.stringify(arrayScore), 'utf8');
     }
 
     function disableCards() {
@@ -241,8 +227,7 @@ ${pad0(Math.floor(times[2]), 2)}`;
         secondCard.disable();
         firstCard = null;
         secondCard = null;
-        sum+=1;
-
+        sum += 1;
     }
 
     function unflipCards() {
@@ -263,38 +248,38 @@ ${pad0(Math.floor(times[2]), 2)}`;
             let randomPos = Math.floor(Math.random() * 10);
         card.style.order = randomPos;
     })
-        ;
     })();
+
+    function shuffle() {
+        cardsOrder.forEach(card => {
+            let randomPos = Math.floor(Math.random() * 10);
+        card.style.order = randomPos;
+    })
+    }
 
     document.querySelector('.btn_restart').addEventListener('click', () => {
         stopwatch.stop();
     stopwatch.reset();
     resetGame();
     sum = 0;
-
-    })
-    ;
+    });
 
     function resetGame() {
-        cards.forEach(card => {
+        shuffle();
+        cards.forEach(card => {card.classList.contains('flip_card') ? card.classList.toggle('flip_card') : '';})
 
-            card.classList.contains('flip_card')? card.classList.toggle('flip_card'): '';
-        }
-    )
-        ;
-        cards.forEach(card => card.addEventListener('click', clickCard)
-    )
-        ;
+        cards.forEach(card => card.addEventListener('click', clickCard))
+
         firstCard = null;
         secondCard = null;
-
     }
 
+    cards.forEach(card => card.addEventListener('click', clickCard))
 
-
-    cards.forEach(card => card.addEventListener('click', clickCard)
-    )
-    ;
+    const back = document.getElementById('back');
+    back.addEventListener('click', function () {
+        ipcRenderer.send('btn:exit:menu');
+    });
 </script>
 </body>
 </html>

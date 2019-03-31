@@ -1,70 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8"> <title>Memory Game</title>
+    <meta charset="UTF-8">
+    <title>Memory Game</title>
     <link rel="stylesheet" type="text/css" href="min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
 </head>
 <body>
 <div class="content">
-
     <div class="recordList"></div>
     <button class="btn btn_restart" onclick="clearScores()"> Clear</button>
-    <table >
+    <button class="btn btn_restart btn_back" id="back"> Back</button>
+    <table>
         <thead>
         <tr>
             <th>Name</th>
             <th>Time</th>
         </tr>
         </thead>
-
         <tbody id="myTable">
-
         </tbody>
     </table>
 </div>
-
 <script>
     // You can also require other files to run in this process
-    require('./renderer.js')
-    var fs=require('fs');
-    var data=fs.readFileSync('data.json', 'utf8');
+    require('./renderer.js');
+    var fs = require('fs');
+
+
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+    var data = fs.readFileSync('data.json', 'utf8');
     var array = JSON.parse(data);
     updateTable();
 
-function clearScores() {
-    array=[];
-    fs.writeFileSync('data.json',JSON.stringify(array) , 'utf8');
-    updateTable();
-updateTable();
-}
+    function clearScores() {
+        array = [];
+        fs.writeFileSync('data.json', JSON.stringify(array), 'utf8');
+        updateTable();
+        updateTable();
+    }
 
-    function addRecord(pName,pTime){
+    function addRecord(pName, pTime) {
 
-        array.push({name:pName,time:pTime});
-        fs.writeFileSync('data.json',JSON.stringify(array) , 'utf8');
+        array.push({name: pName, time: pTime});
+        fs.writeFileSync('data.json', JSON.stringify(array), 'utf8');
         updateTable();
 
     }
 
     function updateTable() {
-        var recordList =  document.getElementById("myTable");
+        var recordList = document.getElementById("myTable");
         recordList.innerHTML = "";
         array.forEach(function (element, index, array) {
-            var row =  recordList.insertRow(-1);
-            row.insertCell(0).innerHTML=element.name;
-            row.insertCell(1).innerHTML=element.time;
+            var row = recordList.insertRow(-1);
+            row.insertCell(0).innerHTML = element.name;
+            row.insertCell(1).innerHTML = element.time;
         });
 
 
     }
 
 
-
-
-
-
+    const back = document.getElementById('back');
+    back.addEventListener('click', function () {
+        ipcRenderer.send('btn:exit:menu');
+    });
 </script>
 </body>
 </html>
