@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Buy a Ticket</title>
+    <link rel="stylesheet" type="text/css" href="min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+</head>
+<body>
+<div class="content">
+    <div id="namer">
+        <div id="namer-input" class="cheeky">
+            
+        </div>
+    </div>
+    <button class="btn btn_restart"> Buy Ticket</button>
+    <button class="btn btn_restart btn_back" id="back"> Back</button>
+    <div class="stopwatch" id="timer"></div>
+    <div class="game_section">
+    </div>
+</div>
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js');
+
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+    const delay = require('delay');
+    const fs = require('fs');
+    var array = JSON.parse(data);
+    var pairs = array.length;
+    var sum = 0;
+	
+    }
+    const back = document.getElementById('back');
+    back.addEventListener('click', function () {
+        ipcRenderer.send('btn:exit:menu');
+    });
+</script>
+</body>
+</html>
