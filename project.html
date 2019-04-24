@@ -9,29 +9,17 @@
 </head>
 <body>
 <div class="content">
-    <div id="namer">
-        <div id="namer-input" class="cheeky">
-            
-        </div>
-    </div>
+     <IMG STYLE="position:absolute; TOP:335px; RIGHT:120px; WIDTH:438px; HEIGHT:380px" SRC="https://www.kupbilet.pl/share/__Lang/PL/Grafika/hb0276/sektory.gif?11851">
     <button class="btn btn_restart"> Buy Ticket</button>
     <button class="btn btn_restart btn_back" id="back"> Back</button>
-    <div class="stopwatch" id="timer"></div>
-    <div class="game_section">
-    </div>
 </div>
-<script>
-    // You can also require other files to run in this process
-    require('./renderer.js');
 
-    const electron = require('electron');
-    const {ipcRenderer} = electron;
+<script>
+    require('./renderer.js');
     const delay = require('delay');
     const fs = require('fs');
     var array = JSON.parse(data);
     var pairs = array.length;
-    var sum = 0;
-	
     }
     const back = document.getElementById('back');
     back.addEventListener('click', function () {

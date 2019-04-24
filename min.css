@@ -6,7 +6,7 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url("https://image.ceneostatic.pl/data/products/46058290/i-fototapeta-stadion-narodowy-100402-34.jpg");
+    background: url("https://s0.dziennik.pl/pliki/8979000/8979097-koszykarz-moze-trafic-znow-do-900-553.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -17,18 +17,8 @@ body {
     left: 56vw;
     transform: translate(-80%,-50%);
 }
-.card_logo_front{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: url(https://static.thenounproject.com/png/4059-200.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 130px;
-    height: 125px;
-    transform: translate(-50%,-50%);
-}
+
+
 .btn_custom{
     display: block;
     background: green !important;
@@ -42,8 +32,6 @@ body {
     position: absolute;
     transform: scale(1.5);
 }
-
-
 .btn_back{
     top: 5px;
     right: 5px;
