@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+     <head>
+	      <meta charset="UTF-8">
+		  <title>Personal Data</title>
+    </head>
+	<body>
+	<form action="index.html"  method="GET">
+	<fieldset>
+	<legend>Personal Details: </legend>
+	<label for ="firstname">First name:</label><input type="text" name ="firstName" id="firstname" required autofocus placeholder = "Your first name" pattern= "[a-zA-Z]{3,}" title="Please enter in more than three letters">
+	<label for ="lastname">Last name:</label><input type="text" name ="lastName" id="lastname" required autofocus placeholder = "Your last name" pattern= "[a-zA-Z]{2,}" title="Please enter in more than two letters">
+	<label for="email">Email:</label><input type="text" name="email" id="email" required placeholder="Your email" pattern="[a-zA-Z]{3,}@[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" title="Please enter in a valid email address">
+	<label for="phone">Phone:</label><input type="tel" name="phone" id="phone" required placeholder ="Please enter in your phone number" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" title="Please enter in a phone number in this format: ### ### ###">
+	<select name= "country" required>
+	<option value= ""> </option>
+	<option value="US">PL</option>
+	<option value="US">DE</option>
+	<option value="UK">UK</option>
+	<option value="AUS">AUS</option>
+	</select>
+	</fieldset>
+	<br>
+	<fieldset>
+	<legend> Booking Details: </legend>
+	<label for="date"> Match day: </label><input id="date" type="date" name ="date" min= "2019-05-15">
+	<label for="numberOfGuests">The number of tickets: </label><input id="numberOfGuests" type="number" name="numberOfGuests" min="1" max = "6">
+	<p>Additional discounts?</p>
+	<label for="yesMeals"> Yes: </label><input id= "yesMeals" type="radio" name="meals" value= "yesMeals">
+	<label for="noMeals"> No: </label><input id= "noMeals" type="radio" name="meals" value= "noMeals">
+	<br>
+    <label for="balcony"> Are you sure of buying this tickets?: </label><input id="balcony" type="checkbox" name="balcony" value="yes" checked>
+	<br>
+	<input type="image" src="photos/button.png" onclick="myFunction()" width="170" height= "100">
+	</fieldset>
+	</form>
+	<script>
+function myFunction() {
+  alert("Data saved sucessfully");
+}
+</script>
+	<body>
+</html>
+		  

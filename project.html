@@ -9,22 +9,19 @@
 </head>
 <body>
 <div class="content">
-     <IMG STYLE="position:absolute; TOP:335px; RIGHT:120px; WIDTH:438px; HEIGHT:380px" SRC="https://www.kupbilet.pl/share/__Lang/PL/Grafika/hb0276/sektory.gif?11851">
-    <button class="btn btn_restart"> Buy Ticket</button>
-    <button class="btn btn_restart btn_back" id="back"> Back</button>
+     <IMG STYLE="position:absolute; TOP:255px; RIGHT:120px; WIDTH:500px; HEIGHT:550px" SRC="photos/kibic.png">
+    <a href="personalData.html"><button id="buy_ticket"  class="btn btn_restart"> Buy Ticket</button>
+    <a href="index.html"><button id="back" class="btn btn_restart btn_back"> Back</button>
 </div>
 
 <script>
     require('./renderer.js');
     const delay = require('delay');
     const fs = require('fs');
-    var array = JSON.parse(data);
-    var pairs = array.length;
-    }
-    const back = document.getElementById('back');
-    back.addEventListener('click', function () {
-        ipcRenderer.send('btn:exit:menu');
-    });
+	const start = document.getElementById('buy_ticket');
+    const exit = document.getElementById('back');
+	
+    
 </script>
 </body>
 </html>
