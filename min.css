@@ -45,3 +45,20 @@ body {
     top: 12%;
     transform: translate(-50%);
 }
+
+#onebox{
+	
+    width: auto;
+    height: auto;
+    display:inline-block;
+	margin-right: 50px;
+    background-color: red;
+
+}
+#twobox{
+	text-align: center;
+    width: auto;
+    height: auto;
+    display:inline-block;
+    background-color: green;
+}
