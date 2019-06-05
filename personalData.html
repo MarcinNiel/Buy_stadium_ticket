@@ -5,13 +5,16 @@
 		  <title>Personal Data</title>
     </head>
 	<body>
+	<div id="onebox"  >
+	
+	</div><br />
 	<form action="index.html"  method="GET">
 	<fieldset>
-	<legend>Personal Details: </legend>
-	<label for ="firstname">First name:</label><input type="text" name ="firstName" id="firstname" required autofocus placeholder = "Your first name" pattern= "[a-zA-Z]{3,}" title="Please enter in more than three letters">
-	<label for ="lastname">Last name:</label><input type="text" name ="lastName" id="lastname" required autofocus placeholder = "Your last name" pattern= "[a-zA-Z]{2,}" title="Please enter in more than two letters">
-	<label for="email">Email:</label><input type="text" name="email" id="email" required placeholder="Your email" pattern="[a-zA-Z]{3,}@[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,}" title="Please enter in a valid email address">
-	<label for="phone">Phone:</label><input type="tel" name="phone" id="phone" required placeholder ="Please enter in your phone number" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" title="Please enter in a phone number in this format: ### ### ###">
+	<legend>Booking Details: </legend>
+	<label for ="firstname">First name:</label><input type="text"  placeholder="Name" class="sm-form-control border-form-control datetimepicker" id="ScheduledVisit" />
+	<label for ="lastname">Last name:<input type="text"  class="sm-form-control border-form-control" placeholder="Surname" id="company" />
+	<label for="email">Email: <input type="text"  placeholder="Email" class="sm-form-control border-form-control" id="contact" />
+	<label for="phone">Phone:</label><input type="text"  id="Phone"  placeholder="Phone number" >
 	<select name= "country" required>
 	<option value= ""> </option>
 	<option value="US">PL</option>
@@ -19,26 +22,113 @@
 	<option value="UK">UK</option>
 	<option value="AUS">AUS</option>
 	</select>
-	</fieldset>
 	<br>
-	<fieldset>
-	<legend> Booking Details: </legend>
-	<label for="date"> Match day: </label><input id="date" type="date" name ="date" min= "2019-05-15">
-	<label for="numberOfGuests">The number of tickets: </label><input id="numberOfGuests" type="number" name="numberOfGuests" min="1" max = "6">
-	<p>Additional discounts?</p>
-	<label for="yesMeals"> Yes: </label><input id= "yesMeals" type="radio" name="meals" value= "yesMeals">
-	<label for="noMeals"> No: </label><input id= "noMeals" type="radio" name="meals" value= "noMeals">
 	<br>
-    <label for="balcony"> Are you sure of buying this tickets?: </label><input id="balcony" type="checkbox" name="balcony" value="yes" checked>
+	<label for="balcony"> Are you sure of buying this tickets?: </label><input id="balcony" type="checkbox" name="balcony" value="yes" checked>
 	<br>
-	 <input type="image" src="photos/button.png" onclick="myFunction()" width="170" height= "100">
+	 <a href="index.html" ><button  id="button" type="image" src="photos/button.png"  width="170" height= "100">Confirm and buy</button></a>
 	</fieldset>
 	</form>
+	<button onclick= "myFunction1()" style="background-color: #00ffbf; margin-right:500px; width:110px ; height:60px; " id="back1" class="btn btn_restart btn_back" > Show tickets</button></a>
+	<a href="layoutOfTheStadium/A1.html"><button style="background-color: #26a69a; margin-right:500px; width:110px ; height:60px; " id="back1"  > Back</button></a>
+	<span id="result"></span>
+	<p id="info1" STYLE="position:absolute; TOP:345px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info2" STYLE="position:absolute; TOP:379px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info3" STYLE="position:absolute; TOP:413px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info4" STYLE="position:absolute; TOP:481px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p><b>Your price for tickets:</b></p>
+	<p><b>Your rows:</b></p>
+	<p><b>Your cols:</b></p>
+	<br>
+	<font color="red"><p><u><b>Total price:</b></u></p> </font>
 	<script>
-function myFunction() {
-  alert("Data saved sucessfully");
+	var sum =0;
+	var arrayprice = [];
+  var arrayrow = [];
+  var arraycolumn = [];
+  var arrayid = [];
+  var personalData = [];
+function myFunction1() {
+  let fs = require('fs');
+  
+	let scoreFile = fs.readFileSync('file.json', 'utf8');
+	let array = JSON.parse(scoreFile);
+	let variable = array.length;
+	for( var i = 0;i < variable ;i++)
+	{
+	if( i % 4 == 0)
+	{
+    arrayprice.push(array[i]);
+	sum +=array[i];
+	}
+	if( i % 4 == 1)
+	arrayrow.push(array[i]);
+	if( i % 4 == 2)
+	arraycolumn.push(array[i]);
+	if( i % 4 == 3)
+	arrayid.push(array[i]);
+	}
+
+	document.getElementById("info1").innerHTML = arrayprice;
+	document.getElementById("info2").innerHTML = arrayrow;
+	document.getElementById("info3").innerHTML = arraycolumn;
+	document.getElementById("info4").innerHTML = sum;
+  
 }
+
+
+document.getElementById('button').addEventListener('click', function() {
+const fs = require('fs');
+   var arrayid2 = [];
+   
+  let scoreFile = fs.readFileSync('A1.json','utf8');
+  if(scoreFile.length > 0)
+  {
+  	let array = JSON.parse(scoreFile);
+	let variable = array.length;
+	
+  
+	for( var i = 0;i < variable ;i++)
+	{
+    arrayid2.push(array[i]);
+	}
+   }
+  var Imie = document.getElementById('ScheduledVisit').value;
+  var Nazwisko = document.getElementById('company').value;
+  var Phone = document.getElementById('Phone').value;
+  
+  arrayid2.push(Imie);
+  arrayid2.push(Nazwisko);
+  arrayid2.push(Phone);
+  if(arrayid[0] >0  && arrayid[0] <=30)
+  arrayid2.push("A1");
+  if(arrayid[0] >30  && arrayid[0] <=60)
+  arrayid2.push("A2");
+  if(arrayid[0] >60  && arrayid[0] <=90)
+  arrayid2.push("C1");
+  if(arrayid[0] >90  && arrayid[0] <=120)
+  arrayid2.push("C2");
+  if(arrayid[0] >120  && arrayid[0] <=150)
+  arrayid2.push("B1");
+  if(arrayid[0] >150  && arrayid[0] <=180)
+  arrayid2.push("B2");
+  if(arrayid[0] >180  && arrayid[0] <=210)
+  arrayid2.push("B3");
+  if(arrayid[0] >210  && arrayid[0] <=240)
+  arrayid2.push("B4");
+ var row = arrayrow.toString();
+ var column = arraycolumn.toString();
+ 
+ arrayid2.push(row);
+ arrayid2.push(column);
+  arrayid2.push(sum);
+var myJSON = JSON.stringify(arrayid2);
+  fs.writeFileSync('A1.json', myJSON);
+
+
+				
+});
 </script>
-	<body>
+	</body>
 </html>
 		  

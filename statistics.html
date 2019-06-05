@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+      <head>
+	      <meta charset="UTF-8">
+		  <title>Personal Data</title>
+    </head>
+	<body>
+
+	<a href="index.html"><button style="background-color: #26a69a; margin-right:500px; width:110px ; height:60px; " id="back1"  > Back</button></a>
+	<button onclick="myFunction1" style="background-color: #26a69a; margin-right:500px; width:110px ; height:60px; " id="back1"  > Show table</button></a>
+	<IMG STYLE="position:absolute; TOP:130px; RIGHT:230px; WIDTH:682px; HEIGHT:375px" SRC="photos/table.png">
+	<span id="result"></span>
+	
+    <p id="info1" STYLE="position:absolute; TOP:275px; LEFT:2px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info2" STYLE="position:absolute; TOP:379px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info3" STYLE="position:absolute; TOP:413px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info4" STYLE="position:absolute; TOP:481px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info5" STYLE="position:absolute; TOP:345px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info6" STYLE="position:absolute; TOP:481px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info7" STYLE="position:absolute; TOP:345px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+</body>
+	<script>
+
+function myFunction1() {
+
+ var arrayid2 = [];
+function myFunction() {
+const fs = require('fs');
+  
+let scoreFile = fs.readFileSync('A1.json','utf8');
+if(scoreFile.length > 0)
+  {
+  	let array = JSON.parse(scoreFile);
+	let variable = array.length;
+	var z = 0;
+  
+	for( var i = 0;i < variable ;i++)
+	{
+    arrayid2.push(array[i]);
+	}
+
+   }
+    
+	document.getElementById(string $info1)[0].innerHTML = "dobosz";
+	document.getElementById("info2").innerHTML = arrayid2[1];
+	document.getElementById("info3").innerHTML = arrayid2[2];
+	document.getElementById("info4").innerHTML = arrayid2[3];
+	document.getElementById("info5").innerHTML = arrayid2[4];
+	document.getElementById("info6").innerHTML = arrayid2[5];
+	document.getElementById("info7").innerHTML = arrayid2[6];
+}
+				
+};
+</script>
+</html>
+		  
