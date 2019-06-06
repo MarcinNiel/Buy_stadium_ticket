@@ -3,8 +3,10 @@
      <head>
 	      <meta charset="UTF-8">
 		  <title>Personal Data</title>
+		  
     </head>
-	<body>
+	<body style="background-color:#ffe6e6">
+	<IMG STYLE="position:absolute; TOP:180px; RIGHT:100px; WIDTH:702px; HEIGHT:600px" SRC="photos/buyticket.png">
 	<div id="onebox"  >
 	
 	</div><br />
@@ -32,10 +34,10 @@
 	<button onclick= "myFunction1()" style="background-color: #00ffbf; margin-right:500px; width:110px ; height:60px; " id="back1" class="btn btn_restart btn_back" > Show tickets</button></a>
 	<a href="layoutOfTheStadium/A1.html"><button style="background-color: #26a69a; margin-right:500px; width:110px ; height:60px; " id="back1"  > Back</button></a>
 	<span id="result"></span>
-	<p id="info1" STYLE="position:absolute; TOP:345px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info2" STYLE="position:absolute; TOP:379px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info3" STYLE="position:absolute; TOP:413px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info4" STYLE="position:absolute; TOP:481px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info1" STYLE="position:absolute; TOP:261px; LEFT:188px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info2" STYLE="position:absolute; TOP:295px; LEFT:188px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info3" STYLE="position:absolute; TOP:328px; LEFT:188px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info4" STYLE="position:absolute; TOP:398px; LEFT:188px; WIDTH:50px; HEIGHT:50px"></p>
 	<p><b>Your price for tickets:</b></p>
 	<p><b>Your rows:</b></p>
 	<p><b>Your cols:</b></p>
@@ -68,7 +70,9 @@ function myFunction1() {
 	if( i % 4 == 3)
 	arrayid.push(array[i]);
 	}
-
+    
+	var myJSON1 = JSON.stringify(array);
+  fs.writeFileSync('file.json', myJSON1);
 	document.getElementById("info1").innerHTML = arrayprice;
 	document.getElementById("info2").innerHTML = arrayrow;
 	document.getElementById("info3").innerHTML = arraycolumn;
@@ -128,6 +132,9 @@ var myJSON = JSON.stringify(arrayid2);
 
 				
 });
+
+
+
 </script>
 	</body>
 </html>

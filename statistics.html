@@ -1,56 +1,209 @@
 <!DOCTYPE html>
 <html>
-      <head>
+     <head>
 	      <meta charset="UTF-8">
 		  <title>Personal Data</title>
+		  
     </head>
-	<body>
-
+	<body background="photos/statistics.png"   >
+<IMG STYLE="position:absolute; TOP:140px; RIGHT:248px; WIDTH:687px; HEIGHT:325px" SRC="photos/table.png">
+	<button onclick= "myFunction1()" style="background-color: #00ffbf; margin-right:500px; width:110px ; height:60px; " id="load" class="btn btn_restart btn_back" > Show table</button></a>
 	<a href="index.html"><button style="background-color: #26a69a; margin-right:500px; width:110px ; height:60px; " id="back1"  > Back</button></a>
-	<button onclick="myFunction1" style="background-color: #26a69a; margin-right:500px; width:110px ; height:60px; " id="back1"  > Show table</button></a>
-	<IMG STYLE="position:absolute; TOP:130px; RIGHT:230px; WIDTH:682px; HEIGHT:375px" SRC="photos/table.png">
 	<span id="result"></span>
+	<p id="info1" STYLE="position:absolute; TOP:172px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info2" STYLE="position:absolute; TOP:172px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info3" STYLE="position:absolute; TOP:172px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info4" STYLE="position:absolute; TOP:172px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info5" STYLE="position:absolute; TOP:172px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info6" STYLE="position:absolute; TOP:172px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info7" STYLE="position:absolute; TOP:172px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info8" STYLE="position:absolute; TOP:202px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info9" STYLE="position:absolute; TOP:202px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info10" STYLE="position:absolute; TOP:202px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info11" STYLE="position:absolute; TOP:202px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info12" STYLE="position:absolute; TOP:202px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info13" STYLE="position:absolute; TOP:202px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info14" STYLE="position:absolute; TOP:202px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info15" STYLE="position:absolute; TOP:232px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info16" STYLE="position:absolute; TOP:232px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info17" STYLE="position:absolute; TOP:232px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info18" STYLE="position:absolute; TOP:232px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info19" STYLE="position:absolute; TOP:232px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info20" STYLE="position:absolute; TOP:232px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info21" STYLE="position:absolute; TOP:232px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info22" STYLE="position:absolute; TOP:260px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info23" STYLE="position:absolute; TOP:260px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info24" STYLE="position:absolute; TOP:260px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info25" STYLE="position:absolute; TOP:260px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info26" STYLE="position:absolute; TOP:260px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info27" STYLE="position:absolute; TOP:260px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info28" STYLE="position:absolute; TOP:260px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info29" STYLE="position:absolute; TOP:288px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info30" STYLE="position:absolute; TOP:288px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info31" STYLE="position:absolute; TOP:288px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info32" STYLE="position:absolute; TOP:288px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info33" STYLE="position:absolute; TOP:288px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info34" STYLE="position:absolute; TOP:288px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info35" STYLE="position:absolute; TOP:288px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info36" STYLE="position:absolute; TOP:316px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info37" STYLE="position:absolute; TOP:316px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info38" STYLE="position:absolute; TOP:316px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info39" STYLE="position:absolute; TOP:316px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info40" STYLE="position:absolute; TOP:316px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info41" STYLE="position:absolute; TOP:316px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info42" STYLE="position:absolute; TOP:316px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info43" STYLE="position:absolute; TOP:344px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info44" STYLE="position:absolute; TOP:344px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info45" STYLE="position:absolute; TOP:344px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info46" STYLE="position:absolute; TOP:344px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info47" STYLE="position:absolute; TOP:344px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info48" STYLE="position:absolute; TOP:344px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info49" STYLE="position:absolute; TOP:344px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info50" STYLE="position:absolute; TOP:372px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info51" STYLE="position:absolute; TOP:372px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info52" STYLE="position:absolute; TOP:372px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info53" STYLE="position:absolute; TOP:372px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info54" STYLE="position:absolute; TOP:372px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info55" STYLE="position:absolute; TOP:372px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info56" STYLE="position:absolute; TOP:372px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info57" STYLE="position:absolute; TOP:400px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info58" STYLE="position:absolute; TOP:400px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info59" STYLE="position:absolute; TOP:400px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info60" STYLE="position:absolute; TOP:400px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info61" STYLE="position:absolute; TOP:400px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info62" STYLE="position:absolute; TOP:400px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info63" STYLE="position:absolute; TOP:400px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info64" STYLE="position:absolute; TOP:428px; LEFT:282px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info65" STYLE="position:absolute; TOP:428px; LEFT:430px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info66" STYLE="position:absolute; TOP:428px; LEFT:540px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info67" STYLE="position:absolute; TOP:428px; LEFT:650px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info68" STYLE="position:absolute; TOP:428px; LEFT:715px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info69" STYLE="position:absolute; TOP:428px; LEFT:802px; WIDTH:50px; HEIGHT:50px"></p>
+	<p id="info70" STYLE="position:absolute; TOP:428px; LEFT:880px; WIDTH:50px; HEIGHT:50px"></p>
 	
-    <p id="info1" STYLE="position:absolute; TOP:275px; LEFT:2px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info2" STYLE="position:absolute; TOP:379px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info3" STYLE="position:absolute; TOP:413px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info4" STYLE="position:absolute; TOP:481px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info5" STYLE="position:absolute; TOP:345px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info6" STYLE="position:absolute; TOP:481px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-	<p id="info7" STYLE="position:absolute; TOP:345px; LEFT:168px; WIDTH:50px; HEIGHT:50px"></p>
-</body>
-	<script>
-
+	<p id="info71"  STYLE="position:absolute; TOP:629px; LEFT:860px; WIDTH:50px; HEIGHT:50px"></p>
+   <b><font color="green"> <p   STYLE="position:absolute; TOP:628px; LEFT:680px; WIDTH:200px; HEIGHT:100px">Liczba kupionych miejsc: </p  ><p STYLE="position:absolute; TOP:628px; LEFT:900px; WIDTH:200px; HEIGHT:100px">z 240 dostępnych</p></font></b>
+	
+	<p id="info72"  STYLE="position:absolute; TOP:689px; LEFT:860px; WIDTH:50px; HEIGHT:50px"></p>
+   <b><font color="green"> <p   STYLE="position:absolute; TOP:688px; LEFT:725px; WIDTH:200px; HEIGHT:100px">Dochód całkowity: </p> <p STYLE="position:absolute; TOP:688px; LEFT:900px; WIDTH:200px; HEIGHT:100px">z 3420zł</p></font></b>
+	<br>
+	
+<script>
+	var arrayprice = [];
+    var sum;
 function myFunction1() {
 
- var arrayid2 = [];
-function myFunction() {
-const fs = require('fs');
+  let fs = require('fs');
   
-let scoreFile = fs.readFileSync('A1.json','utf8');
-if(scoreFile.length > 0)
-  {
-  	let array = JSON.parse(scoreFile);
+	let scoreFile = fs.readFileSync('A1.json', 'utf8');
+	let array = JSON.parse(scoreFile);
 	let variable = array.length;
-	var z = 0;
-  
 	for( var i = 0;i < variable ;i++)
 	{
-    arrayid2.push(array[i]);
+    arrayprice.push(array[i]);
 	}
+	var number =arrayprice.length;
+ 
+    var num = arrayprice[4].split(',').length;
+    var num1 = arrayprice[11].split(',').length;
+	var num2 = arrayprice[18].split(',').length;
+	var num3 = arrayprice[25].split(',').length;
+	var num4 = arrayprice[32].split(',').length;
+	var num5 = arrayprice[39].split(',').length;
+	var num6 = arrayprice[46].split(',').length;
+	var num7 = arrayprice[53].split(',').length;
+	var num8 = arrayprice[60].split(',').length;
+	var num9 = arrayprice[67].split(',').length;
+	
+	var sum1 = arrayprice[6]+arrayprice[13]+arrayprice[20]+arrayprice[27]+arrayprice[34]+arrayprice[41]+arrayprice[48]+arrayprice[55]+arrayprice[62]+arrayprice[69];
+ 
+	sum = num+num1+num2+num3+num4+num5+num6+num7+num8+num9;
 
-   }
-    
-	document.getElementById(string $info1)[0].innerHTML = "dobosz";
-	document.getElementById("info2").innerHTML = arrayid2[1];
-	document.getElementById("info3").innerHTML = arrayid2[2];
-	document.getElementById("info4").innerHTML = arrayid2[3];
-	document.getElementById("info5").innerHTML = arrayid2[4];
-	document.getElementById("info6").innerHTML = arrayid2[5];
-	document.getElementById("info7").innerHTML = arrayid2[6];
+	
+	document.getElementById("info1").innerHTML = arrayprice[0];
+	document.getElementById("info2").innerHTML = arrayprice[1];
+	document.getElementById("info3").innerHTML = arrayprice[2];
+	document.getElementById("info4").innerHTML = arrayprice[3]; 
+	document.getElementById("info5").innerHTML = arrayprice[4];
+	document.getElementById("info6").innerHTML = arrayprice[5];
+	document.getElementById("info7").innerHTML = arrayprice[6]; 
+	document.getElementById("info8").innerHTML = arrayprice[7];
+	document.getElementById("info9").innerHTML = arrayprice[8];
+	document.getElementById("info10").innerHTML = arrayprice[9];
+	document.getElementById("info11").innerHTML = arrayprice[10]; 
+	document.getElementById("info12").innerHTML = arrayprice[11];
+	document.getElementById("info13").innerHTML = arrayprice[12];
+	document.getElementById("info14").innerHTML = arrayprice[13]; 
+	document.getElementById("info15").innerHTML = arrayprice[14];
+	document.getElementById("info16").innerHTML = arrayprice[15];
+	document.getElementById("info17").innerHTML = arrayprice[16];
+	document.getElementById("info18").innerHTML = arrayprice[17]; 
+	document.getElementById("info19").innerHTML = arrayprice[18];
+	document.getElementById("info20").innerHTML = arrayprice[19];
+	document.getElementById("info21").innerHTML = arrayprice[20]; 
+	document.getElementById("info22").innerHTML = arrayprice[21];
+	document.getElementById("info23").innerHTML = arrayprice[22];
+	document.getElementById("info24").innerHTML = arrayprice[23];
+	document.getElementById("info25").innerHTML = arrayprice[24]; 
+	document.getElementById("info26").innerHTML = arrayprice[25];
+	document.getElementById("info27").innerHTML = arrayprice[26];
+	document.getElementById("info28").innerHTML = arrayprice[27]; 
+	document.getElementById("info29").innerHTML = arrayprice[28];
+	document.getElementById("info30").innerHTML = arrayprice[29];
+	document.getElementById("info31").innerHTML = arrayprice[30];
+	document.getElementById("info32").innerHTML = arrayprice[31]; 
+	document.getElementById("info33").innerHTML = arrayprice[32];
+	document.getElementById("info34").innerHTML = arrayprice[33];
+	document.getElementById("info35").innerHTML = arrayprice[34]; 
+	document.getElementById("info36").innerHTML = arrayprice[35];
+	document.getElementById("info37").innerHTML = arrayprice[36];
+	document.getElementById("info38").innerHTML = arrayprice[37];
+	document.getElementById("info39").innerHTML = arrayprice[38]; 
+	document.getElementById("info40").innerHTML = arrayprice[39];
+	document.getElementById("info41").innerHTML = arrayprice[40];
+	document.getElementById("info42").innerHTML = arrayprice[41]; 
+	document.getElementById("info43").innerHTML = arrayprice[42];
+	document.getElementById("info44").innerHTML = arrayprice[43];
+	document.getElementById("info45").innerHTML = arrayprice[44];
+	document.getElementById("info46").innerHTML = arrayprice[45]; 
+	document.getElementById("info47").innerHTML = arrayprice[46];
+	document.getElementById("info48").innerHTML = arrayprice[47];
+	document.getElementById("info49").innerHTML = arrayprice[48]; 
+	document.getElementById("info50").innerHTML = arrayprice[49];
+	document.getElementById("info51").innerHTML = arrayprice[50];
+	document.getElementById("info52").innerHTML = arrayprice[51];
+	document.getElementById("info53").innerHTML = arrayprice[52]; 
+	document.getElementById("info54").innerHTML = arrayprice[53];
+	document.getElementById("info55").innerHTML = arrayprice[54];
+	document.getElementById("info56").innerHTML = arrayprice[55]; 
+	document.getElementById("info57").innerHTML = arrayprice[56];
+	document.getElementById("info58").innerHTML = arrayprice[57];
+	document.getElementById("info59").innerHTML = arrayprice[58];
+	document.getElementById("info60").innerHTML = arrayprice[59]; 
+	document.getElementById("info61").innerHTML = arrayprice[60];
+	document.getElementById("info62").innerHTML = arrayprice[61];
+	document.getElementById("info63").innerHTML = arrayprice[62]; 
+	document.getElementById("info64").innerHTML = arrayprice[63];
+	document.getElementById("info65").innerHTML = arrayprice[64];
+	document.getElementById("info66").innerHTML = arrayprice[65];
+	document.getElementById("info67").innerHTML = arrayprice[66]; 
+	document.getElementById("info68").innerHTML = arrayprice[67];
+	document.getElementById("info69").innerHTML = arrayprice[68];
+	document.getElementById("info70").innerHTML = arrayprice[69]; 
+  
+  document.getElementById("info71").innerHTML = sum; 
+  document.getElementById("info72").innerHTML = sum1; 
+ 
 }
+
+
+
+
+
+
 				
-};
+
 </script>
+	</body>
 </html>
 		  
